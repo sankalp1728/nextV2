@@ -1,0 +1,25 @@
+{
+  "name": "nextv2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon app.js",
+    "app": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sankalp1728/nextV2.git"
+  },
+  "author": "sankalp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sankalp1728/nextV2/issues"
+  },
+  "homepage": "https://github.com/sankalp1728/nextV2#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.1.5"
+  }
+}
