@@ -1,5 +1,6 @@
 const express = require("express")
 const userRouter = require("./routes/userRouter")
+const companyRouter = require ("./routes/companyRouter")
 const mongooseConnect = require("./db")
 const app = express()
 
@@ -10,6 +11,7 @@ mongooseConnect()
 
 
 app.use(userRouter)
+app.use(companyRouter)
 
 app.get("/",async(req,res)=>{
     console.log("application Operational")
