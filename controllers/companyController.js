@@ -1,11 +1,13 @@
+const { set } = require("mongoose")
 const CompanyDetails = require ("../models/companyDetails")
 const DepartmentDetails = require ('../models/departmentDetails')
 
 exports.createCompany = async (req,res)=>{
-
+    
     const companyDetails = new CompanyDetails(req.body)
-
+    
     companyDetails.save().then(response =>{
+        debugger;
         res.json({
             message : "Company Record Added",
             status : 200
@@ -17,6 +19,16 @@ exports.createCompany = async (req,res)=>{
         })
     })
 } 
+exports.editCompany = async(req,res)=>{
+    const company = CompanyDetails.findById(req.body._id).update({
+        name : req.body.name,
+        locations : req.body.locations
+        },
+        {$set : set}
+        
+        )
+
+}
 
 exports.createDepartment = async(req,res)=>{
 
