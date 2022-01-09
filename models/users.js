@@ -2,17 +2,18 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema()
 
 const usersSchema = new Schema({
-    companyId : {
-        type : Number,      // company details table
+    companyID : {
+        type : mongoose.Schema.Types.ObjectId,      // company details table
         required : true
     },
 
-    departmentId : {
+    departmentID : {
         type : Number,     // company department table
+        required : true
     },
 
     designation : {
-        type : String
+        type : String,
     },
 
     name : {
@@ -55,7 +56,8 @@ const usersSchema = new Schema({
     },
 
     isSuperAdmin : {
-        type : Boolean
+        type : Boolean,
+        default : false
     },
 
     permissions : {
@@ -165,5 +167,5 @@ const usersSchema = new Schema({
 
 })
 
-const usersModel = mongoose.model("userModel", usersSchema)
+const usersModel = mongoose.model("user", usersSchema)
 module.exports = usersModel

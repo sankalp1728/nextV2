@@ -1,25 +1,31 @@
 const mongoose =  require('mongoose')
 const Schema = mongoose.Schema
+
+
 const departmentSchema = new Schema ({
 
-    companyId : {
-        type : Number,
+    companyID : {
+        type : mongoose.Schema.Types.ObjectId,
         required : true
     },
     
-    departmentName : {
+    name : {
         type : String,
         required : true
     },
 
-    departmentHead : {
-        type : String,
+    headID : {
+        type : mongoose.Schema.Types.ObjectId,
+        required : true
     },
 
-    subDepartment : [{
-        type: String,
-        subDepartmentHead: String
-    }]
+    parentID : {
+        type : mongoose.Schema.Types.ObjectId,
+        required : false,
+        default : null
+    }
+    // if front-end sends parentID then Sub-dep, if not Dep
+
 }) 
 
 const departmentDetails = mongoose.model("departmentDetails",departmentSchema)

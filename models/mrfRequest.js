@@ -2,10 +2,10 @@ const mongoose = require ("mongoose")
 const Schema = mongoose.Schema
 
 
-const mrfSchema = new Schema({
+const mrfRequestSchema = new Schema({
 
     positonID : {
-        type : Number,
+        type : mongoose.Schema.Types.ObjectId,
         required : true
     },
 
@@ -25,34 +25,32 @@ const mrfSchema = new Schema({
         type : String
     },
 
-    departmentName:{
-        type : String
+    departmentID : {
+        type : mongoose.Schema.Types.ObjectId,
+        required: true
     },
+    // if front-end needs head name, put it in get route
 
-    depHeadName:{
-        type : String
+    subDepartmentID : {
+        type : mongoose.Schema.Types.ObjectId,
+        required : false
     },
-
-    subDepHeadName:{
-        type :String
-    },
-
-    subDepartmentName : {
-        type : String
-    },
+    // if front-end needs head name, put it in get route
 
     location:{
-        type: String
-
+        type: String,
+        required : false
         // work from home
     },
 
     budget : {
-        type : String
+        type : Number,
+        required : true
     },
 
     positonType : {
-        type : String
+        type : String,
+        required : false
     },
 
     specification : {
@@ -87,7 +85,7 @@ const mrfSchema = new Schema({
 
      //females, physically/visuall handicaped
 
-     startDate : {
+    startDate : {
         type : Date,
         required : true
     }, // approval date
@@ -106,5 +104,5 @@ const mrfSchema = new Schema({
 
 })
 
-const mrfModel =  new mongoose.model("mrfModel",mrfSchema)
+const mrfModel =  new mongoose.model("mrfRequest",mrfRequestSchema)
 module.exports = mrfModel

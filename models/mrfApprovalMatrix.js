@@ -5,23 +5,27 @@ const mrfApprovalMatrixSchema = new Schema({
     postionName : {
         type : String,
         required : true
-    }
-    // postionRequester : {
-    //     type : Number,
-    //     required : false
-    // },
-    // companyId : {
-    //     type: Number,
-    //     required : true
-    // },
-    // departmentId : {
-    //     type: Number,
-    //     required : true
-    // },
-    // approverList :[{
-    //     type: Number,
-    //     required: true
-    // }]
+    },
+    postionRequesterID : {
+        type : mongoose.Schema.Types.ObjectId,
+        required : false
+    },
+    companyID : {
+        type: mongoose.Schema.Types.ObjectId,
+        required : true
+    },
+    departmentID : {
+        type: mongoose.Schema.Types.ObjectId,
+        required : true
+    },
+    subDepartmentID : {
+        type : mongoose.Schema.Types.ObjectId,
+        required: false
+    },
+    approverList :[{
+        type: mongoose.Schema.Types.ObjectId,
+        required: true
+    }]
 })
 
 const mrfApproval = mongoose.model("mrfApprovalMatrix",mrfApprovalMatrixSchema)
