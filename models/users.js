@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const Schema = mongoose.Schema()
+const Schema = mongoose.Schema
 
 const usersSchema = new Schema({
     companyID : {
@@ -8,7 +8,12 @@ const usersSchema = new Schema({
     },
 
     departmentID : {
-        type : Number,     // company department table
+        type : mongoose.Schema.Types.ObjectId,     // company department table
+        required : true
+    },
+
+    subDepartmentID : { 
+        type : mongoose.Schema.Types.ObjectId,
         required : true
     },
 
@@ -36,12 +41,13 @@ const usersSchema = new Schema({
     },
 
     userType : {
-        type : Number         // user_type table
+        type : mongoose.Schema.Types.ObjectId,
+        required : false         // user_type table
     },
 
-    jobType : [{
-        type : string
-    }],
+    jobType : {
+        type : String
+    },
 
     gender : {
         type : String
@@ -61,108 +67,23 @@ const usersSchema = new Schema({
     },
 
     permissions : {
-        addUser : {
+        createcompany : {
             type : Boolean,
             required : true
         },
-        searchUser : {
+        editcompany : {
             type : Boolean,
             required : true
         },
-        deleteUser : {
+        deletecompany : {
             type : Boolean,
             required : true
         },
-        editUser : {
-            type : Boolean,
-            required : true
-        },
-        changePassword : {
-            type : Boolean,
-            requried : true
-        },
-        addBranch : {
-            type : Boolean,
-            required : true
-        },
-        showBranch : {
+        getcompany : {
             type : Boolean,
             required : true
         },
         
-        addUserProfile : {
-            type : Boolean,
-            requried : true
-        },
-        updateUserProfile : {
-            type : Boolean,
-            required : true
-        },
-        deleteUserProfile : {
-            type : Boolean,
-            required : true
-        },
-        addHeirarchy :  {
-            type : Boolean,
-            required : true
-        },
-        removeHeirarchy : {
-            type : Boolean,
-            required : true
-        },
-        searchHeirarchy : {
-            type : Boolean,
-            required : true
-        },
-        searchUserProfile : {
-            type : Boolean,
-            required : true
-        },
-        addUserProfile : {
-            type : Boolean,
-            required : true
-        },
-        
-        addApprovalMatrix : {
-            type : Boolean,
-            required : true
-        },
-        deleteApprovalMatrix : {
-            type : Boolean,
-            required : true
-        },
-        updateApprovalMatrix : {
-            type : Boolean,
-            required : true
-        },
-        requestApprovalMatrix : {
-            type : Boolean,
-            required : true
-        },
-        addMrfRequest : {
-            type : Boolean,
-            required : true
-        },
-        deleteMrfRequest : {
-            type : Boolean,
-            required : true
-        },
-        editMrfRequest : {
-            type : Boolean,
-            required : true
-        },
-        showMrfRequest : {
-            type : Boolean,
-            required : true
-        },
-        showApproval : {
-            type : Boolean,
-            required : true
-        },
-        giveApproval : {
-            type : Boolean,
-            requried : true
-        }
     }
 
 })
