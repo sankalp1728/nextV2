@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema()
 
 const usersSchema = new Schema({
     companyId : {
@@ -165,5 +165,5 @@ const usersSchema = new Schema({
 
 })
 
-const usersModel = mongoose.model("companyDetails", companySchema)
+const usersModel = mongoose.model("userModel", usersSchema)
 module.exports = usersModel

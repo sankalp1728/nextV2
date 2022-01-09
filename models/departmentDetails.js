@@ -2,6 +2,11 @@ const mongoose =  require('mongoose')
 const Schema = mongoose.Schema
 const departmentSchema = new Schema ({
 
+    companyId : {
+        type : Number,
+        required : true
+    },
+    
     departmentName : {
         type : String,
         required : true
