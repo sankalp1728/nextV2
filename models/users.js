@@ -9,12 +9,12 @@ const usersSchema = new Schema({
 
     departmentID : {
         type : mongoose.Schema.Types.ObjectId,     // company department table
-        required : true
+        required : false
     },
 
     subDepartmentID : { 
         type : mongoose.Schema.Types.ObjectId,
-        required : true
+        required : false
     },
 
     designation : {
@@ -33,7 +33,7 @@ const usersSchema = new Schema({
 
     password:{
         type : String,
-        required : true
+        required : false
     },
 
     location : {
@@ -67,22 +67,22 @@ const usersSchema = new Schema({
     },
 
     permissions : {
-        createcompany : {
+        createuser : {
             type : Boolean,
             required : true
-        },
-        editcompany : {
-            type : Boolean,
-            required : true
-        },
-        deletecompany : {
-            type : Boolean,
-            required : true
-        },
-        getcompany : {
-            type : Boolean,
-            required : true
-        },
+        }
+        // editcompany : {
+        //     type : Boolean,
+        //     required : true
+        // },
+        // deletecompany : {
+        //     type : Boolean,
+        //     required : true
+        // },
+        // getcompany : {
+        //     type : Boolean,
+        //     required : true
+        // },
         
     }
 

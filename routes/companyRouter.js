@@ -1,9 +1,9 @@
 const express = require('express')
 const companyRouter = express.Router()
 const companyController = require ("../controllers/companyController")
-const accessCheck = require("../auth/accessCheck")
+// const accessCheck = require("../auth/accessCheck")
 
-companyRouter.get("/createcompany",accessCheck, companyController.createCompany)
+companyRouter.post("/createcompany", companyController.createCompany)
 // companyRouter.patch("/editcompany", companyController.editCompany)
 // companyRouter.delete("/deletecompany", companyController.deleteCompany)
 // companyRouter.get("/getcompany", companyController.getCompany)
