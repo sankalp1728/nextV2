@@ -23,3 +23,6 @@ app.get("/",async(req,res)=>{
 app.listen(port,()=>{
     console.log(`the server is listening to port ${port}`)
 })
+
+
+// TODO : To refactor middleware for multiple routes

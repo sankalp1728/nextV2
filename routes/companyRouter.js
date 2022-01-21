@@ -1,9 +1,10 @@
 const express = require('express')
 const companyRouter = express.Router()
 const companyController = require ("../controllers/companyController")
-const accessCheck = require("../auth/accessCheck")
+const accessCheck = require("../middlewares/auth/accessCheck")
+const isSuperAdmin = require("../middlewares/auth/isSuperAdmin")
 
-companyRouter.get("/createcompany",accessCheck, companyController.createCompany)
+companyRouter.get("/createcompany",passport(),isSuperAdmin, companyController.createCompany)
 // companyRouter.patch("/editcompany", companyController.editCompany)
 // companyRouter.delete("/deletecompany", companyController.deleteCompany)
 // companyRouter.get("/getcompany", companyController.getCompany)

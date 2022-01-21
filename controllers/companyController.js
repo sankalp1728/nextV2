@@ -1,5 +1,4 @@
-const { set } = require("mongoose")
-const CompanyDetails = require ("../models/companyDetails")
+const CompanyDetails = require ("../models/company")
 const DepartmentDetails = require ('../models/departmentDetails')
 
 exports.createCompany = async (req,res)=>{
@@ -7,7 +6,6 @@ exports.createCompany = async (req,res)=>{
     const companyDetails = new CompanyDetails(req.body)
     
     companyDetails.save().then(response =>{
-        debugger;
         res.json({
             message : "Company Record Added",
             status : 200

@@ -1,6 +1,6 @@
 const express = require("express")
 const User = require("../models/users")
-const Company = require("../models/companyDetails")
+const Company = require("../models/company")
 const Department = require("../models/departmentDetails")
 
 
