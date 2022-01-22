@@ -1,6 +1,6 @@
 const { set } = require("mongoose")
-const CompanyDetails = require ("../models/companyDetails")
-const DepartmentDetails = require ('../models/departmentDetails')
+const CompanyDetails = require ("../models/company")
+const DepartmentDetails = require ('../models/department')
 
 exports.createCompany = async (req,res)=>{
     

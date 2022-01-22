@@ -1,6 +1,6 @@
 const express = require('express')
 const companyRouter = express.Router()
-const companyController = require ("../controllers/companyController")
+const companyController = require ("../controllers/company")
 // const accessCheck = require("../auth/accessCheck")
 
 companyRouter.post("/createcompany", companyController.createCompany)
