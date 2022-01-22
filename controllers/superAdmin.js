@@ -1,4 +1,4 @@
-const User = require("../models/users")
+const User = require("../models/user")
 var bcrypt = require('bcryptjs');
 
 exports.createSuperAdmin = async(req,res)=>{

@@ -1,9 +1,9 @@
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken')
 const keys = process.env
-const User = require("../models/users")
-const Company = require("../models/companyDetails")
-const Department = require("../models/departmentDetails")
+const User = require("../models/user")
+const Company = require("../models/company")
+const Department = require("../models/department")
 
 
 
