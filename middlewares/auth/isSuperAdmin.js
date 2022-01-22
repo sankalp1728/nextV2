@@ -1,14 +1,11 @@
 const express = require("express")
-const User = require("../models/users")
+const User = require("../../models/users")
 
 const accessCheck = async(req,res,next) =>{
     try{
+        const user = await User.findById(req.user._id)
         console.log("***************************")
-        permissionParam = req.url
-        permissionParam = permissionParam.replace(/[^a-zA-Z ]/g, "")
-
-        const user = await User.findById(req.user.id)
-        if(user.permissions[permissionParam]){
+        if(user.isSuperAdmin){
             console.log("access-granted")
             next()
         }
