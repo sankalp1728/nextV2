@@ -6,7 +6,7 @@ const superAdminRouter = require("./routes/superAdmin")
 const mongooseConnect = require("./db")
 const app = express()
 
-port = 2233||process.env.PORT
+port = 3000||process.env.PORT
 
 app.use(express.json())
 mongooseConnect()

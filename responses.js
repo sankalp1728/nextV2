@@ -6,7 +6,7 @@
 // moduleid : mrfId / candidateId
 // body : 
 
-export const companyDetails = [
+exports.companyDetails = [
   {
     _id: 0123,
     name: "Tata Motors",
@@ -37,13 +37,13 @@ export const companyDetails = [
   },
 ];
 
-export const departmentDetails = [
+exports.departmentDetails = [
   {
     _id: 1001,
     companyID: 0123,
     name: "Research and Development",
     headId: 81230,
-    parentId: null,
+    parentID: null,
     designationName : "manager"
   },
   {
@@ -51,7 +51,7 @@ export const departmentDetails = [
     companyID: 0123,
     name: "Software Development",
     headId: 81231,
-    parentId: 1001,
+    parentID: 1001,
     designationName : "manager"
 },
 
@@ -60,7 +60,7 @@ export const departmentDetails = [
     companyID: 0123,
     name: "Machine Learning",
     headId: 81241,
-    parentId: 1001,
+    parentID: 1001,
     designationName : "manager"
   },
   {
@@ -68,20 +68,20 @@ export const departmentDetails = [
     companyID: 0123,
     name: "Operations",
     headId: 81240,
-    parentId: null,
+    parentID: null,
     designationName : "manager"
   },
   {
     _id: 1005,
     companyID: 0123,
     name: "Sales",
-    headId: "81251",
-    parentId: 1004,
+    headId: 81251,
+    parentID: 1004,
     designationName : "manager"
   },
 ];
 
-export const approvalMatrix = {
+exports.approvalMatrix = {
   _id: "2123",
   postionName: "SDE-1",
   postionRequesterID: 81231,
@@ -91,7 +91,7 @@ export const approvalMatrix = {
   approverList: ["81234", "81244"],
 };
 
-export const mrfRequest = [
+exports.mrfRequest = [
   {
     _id: "mrf_123",
     positonID: "2123",
@@ -117,7 +117,7 @@ export const mrfRequest = [
   },
 ];
 
-export const users = [
+exports.users = [
   {
     _id: 81231,
     companyID: 0123,
