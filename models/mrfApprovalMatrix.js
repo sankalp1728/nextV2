@@ -25,7 +25,16 @@ const mrfApprovalMatrixSchema = new Schema({
     approverList :[{
         type: mongoose.Schema.Types.ObjectId,
         required: true
-    }]
+    }],
+    turnAroundTime : {
+        type : Number,
+        required : true
+    },
+    isApporved : {
+        type : Boolean,
+        required : true,
+        default : false
+    }
 })
 
 const mrfApproval = mongoose.model("mrfApprovalMatrix",mrfApprovalMatrixSchema)

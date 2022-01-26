@@ -8,26 +8,7 @@ const userTypeSchema = new Schema({
         unique : true
     },
     permissions: {
-        createcompany : {
-            type : Boolean,
-            required : true
-        },
-        editcompany : {
-            type : Boolean,
-            required : true
-        },
-        deletecompany : {
-            type : Boolean,
-            required : true
-        },
-        getcompany : {
-            type : Boolean,
-            required : true
-        },
-        createuser : {
-            type : Boolean,
-            required : true
-        },
+        
         getuser : {
             type : Boolean,
             required : true

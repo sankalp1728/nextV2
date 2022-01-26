@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
-const usersSchema = new Schema({
+const userSchema = new Schema({
     companyID : {
         type : mongoose.Schema.Types.ObjectId,      // company details table
         required : true
@@ -33,11 +33,13 @@ const usersSchema = new Schema({
 
     password:{
         type : String,
-        required : false
+        required : false,
+        default: "",
+        select: false
     },
 
     location : {
-        type : String
+        type : String,
     },
 
     userType : {

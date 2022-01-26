@@ -1,5 +1,5 @@
 const express = require("express")
-const mrfController = require("../controllers/mrfController")
+const mrfController = require("../controllers/mrf")
 mrfRouter = express.Router()
 
 mrfRouter.post("/createPosition",mrfController.createPostionMatrix)

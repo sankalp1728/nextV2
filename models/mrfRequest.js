@@ -101,7 +101,12 @@ const mrfRequestSchema = new Schema({
     // mrfStatus : {
     //     type: String
     // }
+    remarks : [
+        
+    ]
 
+}, {
+    timestamps: true
 })
 
 const mrfModel =  new mongoose.model("mrfRequest",mrfRequestSchema)
