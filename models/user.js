@@ -1,5 +1,7 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
+const jobTypes = require("../constants").jobType.values
+const gender = require("../constants").gender.values
 
 const userSchema = new Schema({
     companyID : {
@@ -28,7 +30,8 @@ const userSchema = new Schema({
 
     email : {
         type : String,
-        required : true
+        required : true,
+        unique : true
     },
 
     password:{
@@ -48,11 +51,13 @@ const userSchema = new Schema({
     },
 
     jobType : {
-        type : String
+        type : String,
+        enum : jobTypes
     },
 
     gender : {
-        type : String
+        type : String,
+        enum : gender
     },
 
     diversity : {
@@ -60,7 +65,8 @@ const userSchema = new Schema({
     },
 
     isActive : {
-        type : Boolean
+        type : Boolean,
+        default : true
     },
 
     isSuperAdmin : {
@@ -90,7 +96,7 @@ const userSchema = new Schema({
 
 })
 
-const usersModel = mongoose.model("user", usersSchema)
+const usersModel = mongoose.model("user", userSchema)
 module.exports = usersModel
 
 

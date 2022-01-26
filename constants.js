@@ -4,3 +4,20 @@ exports.mrfSources = {
     "vendor" : 2,
     "self" : 3
 }
+
+
+// for user model
+
+exports.gender = {
+    "male" : "male",
+    "female" : "female",
+    "others" : "others"
+}
+
+exports.jobType = {
+    "permanent" : "permanent",
+    "part-time" : "part-time",
+    "internship" : "internship"
+}
+
+
