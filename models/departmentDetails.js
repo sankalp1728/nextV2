@@ -18,7 +18,10 @@ const departmentSchema = new Schema ({
         type : mongoose.Schema.Types.ObjectId,
         required : true
     },
-
+    designationName : {
+        type : String,
+        required : true
+    },
     parentID : {
         type : mongoose.Schema.Types.ObjectId,
         required : false,
@@ -31,3 +34,4 @@ const departmentSchema = new Schema ({
 const departmentDetails = mongoose.model("departmentDetails",departmentSchema)
 
 module.exports = departmentDetails
+
