@@ -26,9 +26,14 @@ const mrfApprovalMatrixSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true
     }],
+    turnAroundTime : {
+        type : Number,
+        required : true
+    },
     isApporved : {
         type : Boolean,
-        required : true
+        required : true,
+        default : false
     }
 })
 

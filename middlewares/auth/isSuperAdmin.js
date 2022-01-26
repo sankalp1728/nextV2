@@ -1,5 +1,5 @@
 const express = require("express")
-const User = require("../../models/users")
+const User = require("../../models/user")
 
 const accessCheck = async(req,res,next) =>{
     try{
