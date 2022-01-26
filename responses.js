@@ -43,7 +43,7 @@ exports.departmentDetails = [
     companyID: 0123,
     name: "Research and Development",
     headId: 81230,
-    parentId: null,
+    parentID: null,
     designationName : "manager"
   },
   {
@@ -51,7 +51,7 @@ exports.departmentDetails = [
     companyID: 0123,
     name: "Software Development",
     headId: 81231,
-    parentId: 1001,
+    parentID: 1001,
     designationName : "manager"
 },
 
@@ -60,7 +60,7 @@ exports.departmentDetails = [
     companyID: 0123,
     name: "Machine Learning",
     headId: 81241,
-    parentId: 1001,
+    parentID: 1001,
     designationName : "manager"
   },
   {
@@ -68,15 +68,15 @@ exports.departmentDetails = [
     companyID: 0123,
     name: "Operations",
     headId: 81240,
-    parentId: null,
+    parentID: null,
     designationName : "manager"
   },
   {
     _id: 1005,
     companyID: 0123,
     name: "Sales",
-    headId: "81251",
-    parentId: 1004,
+    headId: 81251,
+    parentID: 1004,
     designationName : "manager"
   },
 ];

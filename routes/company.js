@@ -12,6 +12,7 @@ companyRouter.get("/company",companyController.getCompanyDetails)
 
 companyRouter.post("/departments", companyController.createDepartment)
 companyRouter.get("/departments",companyController.getDepartments)
+companyRouter.get("/departments/:id",companyController.getSingleDepartment)
 // companyRouter.post("/editDepartment", companyController.editDepartment)
 
 module.exports = companyRouter
