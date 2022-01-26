@@ -1,12 +1,12 @@
 const express = require("express")
-const userRouter = require("./routes/userRouter")
-const companyRouter = require ("./routes/companyRouter")
-const mrfRouter = require ("./routes/mrfRouter")
-const superAdminRouter = require("./routes/superAdminRouter")
+const userRouter = require("./routes/user")
+const companyRouter = require ("./routes/company")
+const mrfRouter = require ("./routes/mrf")
+const superAdminRouter = require("./routes/superAdmin")
 const mongooseConnect = require("./db")
 const app = express()
 
-port = 2233||process.env.PORT
+port = 3000||process.env.PORT
 
 app.use(express.json())
 mongooseConnect()

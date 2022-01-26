@@ -6,7 +6,7 @@
 // moduleid : mrfId / candidateId
 // body : 
 
-export const companyDetails = [
+exports.companyDetails = [
   {
     _id: 0123,
     name: "Tata Motors",
@@ -37,7 +37,7 @@ export const companyDetails = [
   },
 ];
 
-export const departmentDetails = [
+exports.departmentDetails = [
   {
     _id: 1001,
     companyID: 0123,
@@ -81,7 +81,7 @@ export const departmentDetails = [
   },
 ];
 
-export const approvalMatrix = {
+exports.approvalMatrix = {
   _id: "2123",
   postionName: "SDE-1",
   postionRequesterID: 81231,
@@ -91,7 +91,7 @@ export const approvalMatrix = {
   approverList: ["81234", "81244"],
 };
 
-export const mrfRequest = [
+exports.mrfRequest = [
   {
     _id: "mrf_123",
     positonID: "2123",
@@ -117,7 +117,7 @@ export const mrfRequest = [
   },
 ];
 
-export const users = [
+exports.users = [
   {
     _id: 81231,
     companyID: 0123,

@@ -90,7 +90,7 @@ const userSchema = new Schema({
 
 })
 
-const usersModel = mongoose.model("user", usersSchema)
+const usersModel = mongoose.model("user", userSchema)
 module.exports = usersModel
 
 
