@@ -101,9 +101,42 @@ const mrfRequestSchema = new Schema({
     // mrfStatus : {
     //     type: String
     // }
-    remarks : [
-        
-    ]
+    remarks : [{
+        createdAt : {
+            type : Date,
+            default : Date.now()
+        },
+        body : {
+            type : String,
+            required : true
+        },
+        userID : {
+            type : mongoose.Schema.Types.ObjectId,
+            required : true
+        }
+    }],
+
+    approvals : [{
+        createdAt : {
+            type : Date,
+            default : Date.now()
+        },
+        approverID : {
+            type : mongoose.Schema.Types.ObjectId,
+            required : true
+        },
+        approved : {
+            type : Boolean,
+            default : null,
+            enum : [null, true, false],
+            required : false
+        },
+        escalated : {
+            type : Boolean,
+            default : null,
+            required : false
+        }
+    }]
 
 }, {
     timestamps: true
