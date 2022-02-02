@@ -81,19 +81,38 @@ exports.departmentDetails = [
   },
 ];
 
-exports.approvalMatrix = {
+exports.position = {
   _id: "2123",
   postionName: "SDE-1",
   postionRequesterID: 81231,
   companyID: 0123,
   departmentID: 1001,
   subDepartmentID: 1002,
-  approverList: ["81234", "81244"],
+  approverList: ["81234","81244"]
 };
 
 exports.mrfRequest = [
   {
     _id: "mrf_123",
+    approversList: [
+      {
+        // "id": '81234',
+        "created_at": "",
+        "approval_status": "pending",
+        "name": "Michael Clayton",
+        "email_addresses": ["mclayton@example.com"],
+        "remarks": "Text"
+      },
+      {
+        // "id": '81234',
+        "created_at": "",
+        "approval_status": "pending",
+        "name": "Michael Clayton",
+        "employee_id": "abc-123",
+        "email_addresses": ["mclayton@example.com"],
+        "remarks":"text"
+      }
+    ],
     positonID: "2123",
     noOfReq: 3,
     designation: "Senior Developer",
@@ -111,6 +130,7 @@ exports.mrfRequest = [
       education: "B Tech",
     },
     mrfStatus: "OPEN",
+
     diversity: "General",
     startDate: 24 / 01 - 2022,
     endDate: 30 / 01 / 2022,
@@ -156,11 +176,10 @@ exports.users = [
     diversity: "xyz",
     isActive: true,
     isSuperAdmin: false,
-    permissions: [
-      {
+    permissions: {
+      
         createuser: true,
-      },
-    ],
+    }
   },
   {
     _id: 81232,
@@ -178,11 +197,11 @@ exports.users = [
     diversity: "xyz",
     isActive: true,
     isSuperAdmin: false,
-    permissions: [
+    permissions: 
       {
         createuser: true,
       },
-    ],
+    
   },
   {
     _id: 81242,
@@ -200,11 +219,11 @@ exports.users = [
     diversity: "xyz",
     isActive: true,
     isSuperAdmin: false,
-    permissions: [
+    permissions: 
       {
         createuser: true,
       },
-    ],
+    
   },
   {
     _id: 81233,
@@ -222,11 +241,11 @@ exports.users = [
     diversity: "xyz",
     isActive: true,
     isSuperAdmin: false,
-    permissions: [
+    permissions: 
       {
         createuser: true,
       },
-    ],
+    
   },
   {
     _id: 81234,
@@ -244,11 +263,11 @@ exports.users = [
     diversity: "xyz",
     isActive: true,
     isSuperAdmin: false,
-    permissions: [
+    permissions: 
       {
         createuser: true,
       },
-    ],
+    
   },
   {
     _id: 81244,
@@ -266,11 +285,11 @@ exports.users = [
     diversity: "xyz",
     isActive: true,
     isSuperAdmin: false,
-    permissions: [
+    permissions: 
       {
         createuser: true,
       },
-    ],
+    
   },
 ];
 

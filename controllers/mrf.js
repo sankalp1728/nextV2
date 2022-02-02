@@ -1,37 +1,76 @@
-const PostionMatrix = require("../models/mrfApprovalMatrix")
+const MrfRequest = require("../models/mrfRequest");
+const User = require ("../models/user.js")
+const Position = require("../models/position");
+const mrfService = require('../services/mrfapproval')
+// const { findById } = require("../models/position");
 
-exports.createPostionMatrix =  (req,res)=>{
+exports.createMrf = async (req,res)=>{
 
-    console.log("In create position",req.body);
-    const postionMatrix = new PostionMatrix(req.body)
+    var mrfRequest;
+    
+    var mrfData = req.body
 
-    postionMatrix.save().then(response =>{
+    var approvals=[];
+
+    var position = await Position.findById(req.body.positionID)
+
+    if(!position){
         res.json({
-            message : "New positon saved",
-            status : 200
+            status: 500,
+            position:"No Position Found"
         })
-    }).catch (err =>{
-        console.log(err);
-        res.json({
-            message : "Error in creating postion",
-            status : 501
+    }
+    var approvers = position.approverList;
+    if(approvers){
+        approvers.map(data=>{
+            var approver = {}
+            approver['createdAt']= new Date()
+            approver['approverID']= data
+            approver['isAction']=false
+            approver['escalated']=false
+            approver['status'] = ""
+            approvals.push(approver)
         })
-    })
+        mrfData["approvals"]=approvals
+        mrfRequest =new MrfRequest(mrfData)
+        mrfRequest.save().then(async (response)=>{
+
+            // set the current approval
+           var serviceResponse = await mrfService.mrfApproval(response._id)
+           res.json({
+               status : 200,
+               message : serviceResponse
+           })
+        }).catch(err=>{
+            console.log(err);
+            res.json({
+                status:500,
+                message : "Mrf creation failed"
+            })
+        })
+        
+    }
+    else{
+        console.log("No approvers found");
+        return
+    }
+   
 }
 
-exports.updatePositionMatrix =  (req,res)=>{
- 
-    const positonId = req.body.id    
-    PostionMatrix.findByIdAndUpdate(positonId , req.body ).then(response=>{
-        console.log(response);
-        res.json({
-            message : "Position is updated",
-            status : 200,
-        })
-    }).catch(err =>{
-        res.json({
-            message : "Updation failed",
-            status : 501
-        })
+exports.approval = async(req,res)=>{
+    const isAction = req.body.isAction
+    const status = req.body.status
+    const mrfId = req.body.id
+    const userId = req.body.userId
+
+    MrfRequest.findById(mrfId).then(result=>{
+        // var currentApprover = result.currentApprover
+        // if(currentApprover.approverID == userId){
+        //     currentApprover["isAction"]
+        //     MrfRequest.findByIdAndUpdate(mrfId,)
+        //}
     })
+
+
+
 }

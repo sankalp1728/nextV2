@@ -4,14 +4,14 @@ const Schema = mongoose.Schema
 
 const mrfRequestSchema = new Schema({
 
-    positonID : {
+    positionID : {
         type : mongoose.Schema.Types.ObjectId,
         required : true
     },
 
     noOfReq:{
         type:Number,
-        required:true
+     //   required:true
     },
 
     designation : {
@@ -27,13 +27,13 @@ const mrfRequestSchema = new Schema({
 
     departmentID : {
         type : mongoose.Schema.Types.ObjectId,
-        required: true
+      //  required: true
     },
     // if front-end needs head name, put it in get route
 
     subDepartmentID : {
         type : mongoose.Schema.Types.ObjectId,
-        required : false
+      //  required : false
     },
     // if front-end needs head name, put it in get route
 
@@ -45,30 +45,30 @@ const mrfRequestSchema = new Schema({
 
     budget : {
         type : Number,
-        required : true
+     //   required : true
     },
 
     positonType : {
         type : String,
-        required : false
+     //   required : false
     },
 
     specification : {
         age : {
             type : Number,
-            required : true
+         //   required : true
         },
         relExp : {
             type : Number,
-            required : true
+          //  required : true
         },
         totalExp : {
             type : Number,
-            required : true
+        //    required : true
         },
         education : {
             type : String,
-            required : true
+         //   required : true
         }
     },
 
@@ -87,14 +87,14 @@ const mrfRequestSchema = new Schema({
 
     startDate : {
         type : Date,
-        required : true
+    //    required : true
     }, // approval date
 
     //company will define TAT(unique for each mrf)
     //company will decide  TAT or end date
     endDate : {
         type : Date,
-        required : true
+      //  required : true
     }, // end date bulk mrf changes, and TAT separate
 
     // Based on the candidate progress example screened , lined up ,  ongoing 
@@ -108,11 +108,11 @@ const mrfRequestSchema = new Schema({
         },
         body : {
             type : String,
-            required : true
+          //  required : true
         },
         userID : {
             type : mongoose.Schema.Types.ObjectId,
-            required : true
+         //   required : true
         }
     }],
 
@@ -123,22 +123,42 @@ const mrfRequestSchema = new Schema({
         },
         approverID : {
             type : mongoose.Schema.Types.ObjectId,
-            required : true
+          //  required : true
         },
-        approved : {
+        isAction : {
             type : Boolean,
-            default : null,
-            enum : [null, true, false],
             required : false
+        },
+        status : {
+            type:String          // accepted , rejected
         },
         escalated : {
             type : Boolean,
             default : null,
             required : false
         }
-    }]
+    }],
 
-}, {
+    currentApprover : {
+        createdAt : {
+            type : Date,
+            default : Date.now()
+        },
+        approverID : {
+            type : mongoose.Schema.Types.ObjectId,
+        //    required : true
+        },
+        isAction : {
+            type : Boolean,
+            required : false
+        },
+        status : {
+            type:String          // accepted , rejected
+        }
+    }
+},
+
+{
     timestamps: true
 })
 
