@@ -2,39 +2,38 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 const mrfApprovalMatrixSchema = new Schema({
 
-    postionName : {
+    positionName : {
         type : String,
         required : true
     },
-    postionRequesterID : {
+    positionRequesterID : {
         type : mongoose.Schema.Types.ObjectId,
         required : false
     },
     companyID : {
         type: mongoose.Schema.Types.ObjectId,
-        required : true
+     //   required : true
     },
     departmentID : {
         type: mongoose.Schema.Types.ObjectId,
-        required : true
+     //   required : true
     },
     subDepartmentID : {
         type : mongoose.Schema.Types.ObjectId,
-        default : null,
-        required: false
+     //   required: false
     },
-    approverList :[{
+    approverList : [{
         type: mongoose.Schema.Types.ObjectId,
-        required: true
+      //  required: true
     }],
     turnAroundTime : {
         type : Number,
-        required : true
+      //  required : true
     },
     isApproved : {
         type : Boolean,
-        required : false,
-        default : true
+        required : true,
+        default : false
     }
 })
 

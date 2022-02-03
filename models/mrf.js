@@ -2,7 +2,6 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 const mrfSources = require("../constants").mrfSources
 
-
 const mrfApprovalSchema = new Schema({
 
     mrfRequestID : {
@@ -27,7 +26,4 @@ const mrfApprovalSchema = new Schema({
         default : mrfSources.self,
         required : false
     },
-
-    
-
 })
