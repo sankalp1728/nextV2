@@ -20,6 +20,7 @@ const mrfApprovalMatrixSchema = new Schema({
     },
     subDepartmentID : {
         type : mongoose.Schema.Types.ObjectId,
+        default : null,
         required: false
     },
     approverList :[{
@@ -30,10 +31,10 @@ const mrfApprovalMatrixSchema = new Schema({
         type : Number,
         required : true
     },
-    isApporved : {
+    isApproved : {
         type : Boolean,
-        required : true,
-        default : false
+        required : false,
+        default : true
     }
 })
 
