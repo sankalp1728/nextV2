@@ -5,43 +5,47 @@ exports.mrfApproval = async(mrfId)=>{
 return new Promise(async (resolve,reject)=>{
     console.log("hello i am approval");
     var mrf
-    var finalApproval = false
-
     MrfRequest.findById(mrfId).then(async(result)=>{
         mrf = result
-        console.log("mrf",mrf);
-        if(!mrf.currentApprover.approverId ){
+     //   console.log("mrf",mrf);
+        if(!mrf.currentApprover.approverID ){
             await MrfRequest.findByIdAndUpdate(mrfId,{currentApprover : mrf.approvals[0]})
             resolve("Approval Pending")
             return
         }
-        if (mrf.currentApprover.isAction && mrf.currentApprover.status == "accepted"){
+        else{
             //update the  single approver to next approver
-            mrf.approvals.map(async (approver)=>{
-                    if(approver.isAction == false){
-                       finalApproval = false 
-                       await MrfRequest.findByIdAndUpdate(mrfId,{currentApprover : approver})
-                       resolve("next")
-                       return
-                    }
-                    else {
-                        finalApproval = true
-                    }
-            })
+            for(var i  = 0 ; i<mrf.approvals.length  ; i++){
+            //    console.log("in loop",mrf.currentApprover.approverID.toString() , mrf.approvals[i].approverID.toString());
+                if (mrf.currentApprover.approverID.toString() == mrf.approvals[i].approverID.toString()){  
+               
+                    if(mrf.approvals[i].status=="accepted"){
+                        console.log("In ifff");
+                        if(i<mrf.approvals.length-1){
 
-            if(finalApproval){
-                await MrfRequest.findByIdAndUpdate(mrfId,{status : "approved"})
-                resolve("approved")
-                return 
+                         mrf.currentApprover = mrf.approvals[i+1]
+                         await mrf.save()
+                         resolve("Next Approval Pending")
+                         return
+                        }
+                        else{
+                            console.log(mrf.mrfStatus);
+                            mrf.mrfStatus = "approved"
+                           await mrf.save()
+                         //  console.log("data",x);
+                        resolve("Approved")
+                        return
+                        }
+                    }
+                    if(mrf.approvals[i].status=="rejected"){
+                        mrf.mrfStatus = "rejected"
+                        await mrf.save()
+                        resolve("Rejected")
+                        return
+                    }
+                }
             }
-        }
-
-        if(mrf.currentApprover.isAction && mrf.currentApprover.status == "rejected"){
-            await MrfRequest.findByIdAndUpdate(mrfId,{status : "rejected"})
-            resolve("rejected")
-            return 
-        }
-    })
-})
-    
+          }
+        })
+    })    
 }

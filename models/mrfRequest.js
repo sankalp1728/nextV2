@@ -74,7 +74,7 @@ const mrfRequestSchema = new Schema({
 
     mrfStatus:{    //  IF POSITION STATUS IS CLOSED, THEN, NAME OF THE CANDIDATE, SOURCE TYPE, SOURCE NAME, DOJ, HIRING COST &REMARKS FOR RECRUITER NOTES
         type:String,
-        enum : ["UNAPPROVED","OPEN","CLOSED","CANCELLED"]
+        enum : ["unapproved","open","closed","cancelled","approved","na","rejected"]
     },  // to make seprate collection to update the table (require the cost of updating the mrf)
 
     diversity : {
@@ -130,7 +130,10 @@ const mrfRequestSchema = new Schema({
             required : false
         },
         status : {
-            type:String          // accepted , rejected
+            type:String,
+       //     enum:["accepted","rejected"]          
+            
+            // accepted , rejected
         },
         escalated : {
             type : Boolean,
@@ -148,12 +151,9 @@ const mrfRequestSchema = new Schema({
             type : mongoose.Schema.Types.ObjectId,
         //    required : true
         },
-        isAction : {
+        isApproved : {
             type : Boolean,
             required : false
-        },
-        status : {
-            type:String          // accepted , rejected
         }
     }
 },

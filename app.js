@@ -8,7 +8,7 @@ const mongooseConnect = require("./db")
 const morgan = require("morgan")
 const app = express()
 
-port = 3000||process.env.PORT
+port = 3001 || process.env.PORT
 
 app.use(express.json())
 mongooseConnect()
