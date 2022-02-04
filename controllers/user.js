@@ -13,7 +13,11 @@ const Department = require("../models/department")
 
 
 exports.getUser = async(req,res) => {
-    res.send("hello")
+    try{
+        userID = req.body.userID
+    }catch(err){
+        
+    }
 }
 
 exports.createUser = async(req,res)=> {

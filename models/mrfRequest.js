@@ -25,6 +25,11 @@ const mrfRequestSchema = new Schema({
         type : String
     },
 
+    turnAroundTime : {
+        type : Date,
+        required : true
+    },
+
     departmentID : {
         type : mongoose.Schema.Types.ObjectId,
       //  required: true
@@ -137,7 +142,7 @@ const mrfRequestSchema = new Schema({
         },
         escalated : {
             type : Boolean,
-            default : null,
+            default : false,
             required : false
         }
     }],
