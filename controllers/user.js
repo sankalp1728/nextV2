@@ -9,14 +9,24 @@ const mail_util = require("../utilities/mail")
 const User = require("../models/user")
 const Company = require("../models/company")
 const Department = require("../models/department")
+const getUser = require("../utilities/dbQuery").getUser
 
 
 
 exports.getUser = async(req,res) => {
     try{
         userID = req.body.userID
+        user = await getUser(userID)
+        res.json({
+            status : 200,
+            body : user
+        })
     }catch(err){
-        
+        console.log(err)
+        res.json({
+            status : 400,
+            error : err
+        })
     }
 }
 
