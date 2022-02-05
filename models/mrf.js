@@ -14,16 +14,8 @@ const mrfApprovalSchema = new Schema({
         required : true
     },
 
-    // field will be filled in case the user has come from a referal
-    refferedByID : {
-        type : mongoose.Schema.Types.ObjectId,
-        default : null,
-        required : false
-    },
-
-    SourceType : {
-        type : Number,
-        default : mrfSources.self,
-        required : false
-    },
+    status : {
+        type : String,
+        required : true
+    }
 })

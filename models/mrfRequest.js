@@ -18,11 +18,9 @@ const mrfRequestSchema = new Schema({
         type : String, 
     },
 
-    rmName:{
-        type : String
-    },
-    rmDesignation : {
-        type : String
+    reportingManagerID : {
+        type : mongoose.Schema.Types.ObjectId,
+        required : true
     },
 
     turnAroundTime : {

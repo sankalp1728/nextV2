@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/sankalp1728/nextV2#readme",
   "dependencies": {
+    "async": "^3.2.3",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "express": "^4.17.2",

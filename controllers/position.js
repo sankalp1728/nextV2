@@ -1,5 +1,6 @@
 const Position = require("../models/position")
 const dummyData = require("../responses")
+const getPosition = require("../utilities/dbQuery").getPosition
 
 exports.createPostionMatrix =  (req,res)=>{
 
@@ -49,16 +50,16 @@ exports.getPositionMatrix = async(req,res)=>{
     else{
 
         try{
-        var position = await Postion.find().lean()
+        var position = await getPosition(req.query.positionID)
         if (position) {
           res.json({
               status:200,
-              body : apprvalMatrix
+              body : position
           })  
         }
     }
     catch(err){
-            console.log("Error in get position matrix");
+            console.log(err);
             res.json({
                 status: 500,
                 message:"Error in getting approval matrix"
